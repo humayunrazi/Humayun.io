@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humayun Razi | Excel & Cost Finance & Administration Automation Expert</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CSS Variables & Reset === */
+        :root {
+            --bg-base: #0D1117;
+            --bg-surface: #161B22;
+            --bg-elevated: #21262D;
+            --accent: #00FF88;
+            --accent-hover: #00cc6d;
+            --accent-gold: #F4C542;
+            --text-primary: #FFFFFF;
+            --text-secondary: #8B949E;
+            --text-body: #C9D1D9;
+            --border-color: #30363D;
+            
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'DM Sans', sans-serif;
+            
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            
+            /* Excel Grid Background */
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center top;
+        }
+
+        h1, h2, h3, h4, h5, h6, .mono-text {
+            font-family: var(--font-mono);
+            color: var(--text-primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* === Typography & Utilities === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .text-center { text-align: center; }
+        .accent-text { color: var(--accent); }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* === Buttons === */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-pill {
+            border-radius: 50px;
+            padding: 10px 24px;
+            background-color: var(--accent-gold);
+            color: #000;
+            border-color: var(--accent-gold);
+        }
+        
+        .btn-pill:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        /* === 1. Navigation === */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 24px 0;
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            padding: 16px 0;
+            /* Solid dark green background as requested */
+            background-color: #042614; 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-body);
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* === 2. Hero Section === */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .typing-container {
+            display: inline-block;
+            color: var(--accent);
+            min-height: 1.2em;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 12px;
+            height: 1em;
+            background-color: var(--accent);
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 540px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* Hero Art - CSS Spreadsheet */
+        .hero-art-container {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition-smooth);
+        }
+
+        .hero-art-container:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot.red { background-color: #FF5F56; }
+        .dot.yellow { background-color: #FFBD2E; }
+        .dot.green { background-color: #27C93F; }
+
+        .spreadsheet-grid {
+            display: grid;
+            grid-template-columns: 40px repeat(4, 1fr);
+            gap: 2px;
+            background: var(--border-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .cell {
+            background: var(--bg-base);
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cell.header {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        .cell.data::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Animate specific cells */
+        @keyframes pulseCell {
+            0% { opacity: 0; transform: scale(0.9); }
+            50% { opacity: 0.2; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.9); }
+        }
+
+        .cell.animate-1::after { animation: pulseCell 3s infinite; }
+        .cell.animate-2::after { animation: pulseCell 4s infinite 1s; }
+        .cell.animate-3::after { animation: pulseCell 2.5s infinite 0.5s; }
+        
+        .chart-bar {
+            height: 8px;
+            background: var(--accent);
+            border-radius: 4px;
+            margin: 4px 8px;
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stat-number {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .stat-number span.symbol {
+            color: var(--accent);
+            margin-left: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        /* === 3. Services Section === */
+        #services {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-base);
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,255,136,0.05);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            margin-bottom: 16px;
+            min-height: 44px;
+        }
+
+        .service-ideal {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .service-reveal {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-reveal {
+            max-height: 200px;
+            opacity: 1;
+        }
+
+        .service-reveal ul {
+            border-top: 1px dashed var(--border-color);
+            padding-top: 16px;
+        }
+
+        .service-reveal li {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .service-reveal li::before {
+            content: '▶';
+            color: var(--accent);
+            font-size: 0.6rem;
+            margin-top: 6px;
+        }
+
+        /* === 4. How It Works Section === */
+        #process {
+            background-color: var(--bg-base);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 0;
+        }
+
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-base);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin: 0 auto 24px;
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-step:hover .step-number {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 20px rgba(0,255,136,0.2);
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .step-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* === 5. Why Choose Me Section === */
+        #why-me {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .why-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-content h2 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .why-list {
+            margin-top: 32px;
+        }
+
+        .why-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .why-list li .check {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: -2px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-base);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 6rem;
+            font-family: serif;
+            color: rgba(255,255,255,0.05);
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* === 6. Portfolio Section === */
+        #portfolio {
+            background-color: var(--bg-base);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .portfolio-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--text-secondary);
+            transform: translateY(-5px);
+        }
+
+        .portfolio-header {
+            height: 160px;
+            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-base) 100%);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .portfolio-header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0,255,136,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,255,136,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.6;
+        }
+
+        .portfolio-header-icon {
+            font-size: 3rem;
+            position: relative;
+            z-index: 2;
+            opacity: 0.8;
+        }
+
+        .portfolio-content {
+            padding: 32px;
+        }
+
+        .portfolio-title {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: rgba(0, 255, 136, 0.08);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .portfolio-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* === 7. Pricing Section === */
+        #pricing {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: var(--bg-base);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 40px 32px;
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent);
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-card.popular:hover {
+            border-color: var(--accent-hover);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-name {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-card.popular .plan-name {
+            color: var(--accent);
+        }
+
+        .plan-price-pkr {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .plan-price-usd {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-family: var(--font-mono);
+        }
+
+        .plan-features {
+            text-align: left;
+            margin-bottom: 40px;
+            min-height: 200px;
+        }
+
+        .plan-features li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-weight: bold;
+        }
+
+        /* === 8. Contact Section === */
+        #contact {
+            background-color: var(--bg-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Accent glow behind contact section */
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 8px;
+            color: var(--accent);
+        }
+
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-base);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+
+        .form-success {
+            display: none;
+            margin-top: 20px;
+            padding: 16px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* === 9. Footer === */
+        footer {
+            background-color: #000;
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-tagline {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 300px;
+            margin-bottom: 24px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+        }
+
+        .footer-heading {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* === Animations & States === */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* === Responsive Design === */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-content {
+                text-align: center;
+                order: 1;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto 40px;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .hero-art-container {
+                order: 2;
+                max-width: 600px;
+                margin: 0 auto;
+                transform: none;
+            }
+            .hero-art-container:hover { transform: none; }
+
+            .services-grid, .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .pricing-card.popular {
+                transform: none;
+            }
+            .pricing-card.popular:hover { transform: translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 80px 0; }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--bg-surface);
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: var(--transition-smooth);
+            }
+
+            .nav-links.active { left: 0; }
+            
+            .mobile-menu-toggle { display: block; }
+
+            .hero-content h1 { font-size: 2.5rem; }
+            
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .timeline {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .timeline::before {
+                top: 0; bottom: 0;
+                left: 50px; width: 2px; height: auto;
+            }
+
+            .timeline-step {
+                display: flex;
+                text-align: left;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 0;
+            }
+
+            .step-number {
+                margin: 0;
+                flex-shrink: 0;
+                width: 50px; height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .why-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr; text-align: center; }
+            .stat-number { justify-content: center; }
+            .timeline::before { left: 35px; }
+            .step-number { width: 40px; height: 40px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === NAVIGATION === -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                Excel Specialist <span class="logo-icon">|</span> Humayun Razi
+            </a>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                ☰
+            </button>
+            
+            <div class="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#why-me" class="nav-link">Why Me</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#contact" class="btn btn-pill">Book a Free Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === HERO SECTION === -->
+    <section id="hero" class="section-padding fade-in-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Advanced Excel and BI Solutions for <br>
+                        <span class="typing-container">
+                            <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                        </span>
+                    </h1>
+                    <p class="hero-subtitle">Custom dashboards, automated reports, financial models, and data entry systems — built in Excel so your team can actually use them.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="#services" class="btn btn-primary">See My Services</a>
+                        <a href="#portfolio" class="btn btn-secondary">Download My Portfolio</a>
+                    </div>
+                </div>
+                
+                <div class="hero-art-container">
+                    <div class="mac-dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="spreadsheet-grid">
+                        <!-- Top Header Row -->
+                        <div class="cell header"></div>
+                        <div class="cell header">A</div>
+                        <div class="cell header">B</div>
+                        <div class="cell header">C</div>
+                        <div class="cell header">D</div>
+                        
+                        <!-- Row 1 -->
+                        <div class="cell header">1</div>
+                        <div class="cell data animate-1">REV</div>
+                        <div class="cell data">45,000</div>
+                        <div class="cell data">52,000</div>
+                        <div class="cell data">61,000</div>
+                        
+                        <!-- Row 2 -->
+                        <div class="cell header">2</div>
+                        <div class="cell data">EXP</div>
+                        <div class="cell data">32,000</div>
+                        <div class="cell data animate-3">28,000</div>
+                        <div class="cell data">30,500</div>
+                        
+                        <!-- Row 3 -->
+                        <div class="cell header">3</div>
+                        <div class="cell data">NET</div>
+                        <div class="cell data" style="color:var(--accent);font-weight:bold;">13,000</div>
+                        <div class="cell data" style="color:var(--accent);font-weight:bold;">24,000</div>
+                        <div class="cell data animate-2" style="color:var(--accent);font-weight:bold;">30,500</div>
+                        
+                        <!-- Row 4 (Chart visualization) -->
+                        <div class="cell header">4</div>
+                        <div class="cell data" style="grid-column: span 4; background: var(--bg-base); justify-content: flex-start;">
+                            <div class="chart-bar" id="anim-bar-1"></div>
+                            <div class="chart-bar" id="anim-bar-2" style="background:var(--accent-gold);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-row" id="stats">
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="7">0</span><span class="symbol">+</span></div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="50">0</span><span class="symbol">+</span></div>
+                    <div class="stat-label">Systems Built</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="95">0</span><span class="symbol">%</span></div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" style="font-size: 1.8rem; letter-spacing: 2px;">PKR / USD</div>
+                    <div class="stat-label">Pricing Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SERVICES SECTION === -->
+    <section id="services" class="section-padding fade-in-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What I Build For You</h2>
+                <p>Every solution is custom-built, formula-driven, and ready to use — no coding required on your end.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title mono-text">Executive Dashboards</h3>
+                    <p class="service-desc">KPI dashboards, dynamic charts, slicers and filters.</p>
+                    <p class="service-ideal">Ideal for: CFOs, SME Owners, Finance Managers, CEOs</p>
+                    <div class="service-reveal">
+                        <ul>
+                            <li>Interactive pivot charts</li>
+                            <li>Auto-refreshing data</li>
+                            <li>Print-ready layout</li>
+                            <li>Power Query & Macros</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3 class="service-title mono-text">Financial Models & Reports</h3>
+                    <p class="service-desc">P&L, Cash Flow, Budget vs Actual, Variance Reports.</p>
+                    <p class="service-ideal">Ideal for: Accountants, Finance Analysts, Treasury</p>
+                    <div class="service-reveal">
+                        <ul>
+                            <li>XLOOKUP & dynamic arrays</li>
+                            <li>Conditional formatting</li>
+                            <li>PDF-ready output</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">🧹</div>
+                    <h3 class="service-title mono-text">Data Cleaning & ETL</h3>
+                    <p class="service-desc">Power Query automation, messy data to structured datasets.</p>
+                    <p class="service-ideal">Ideal for: Data Analysts, Operations Teams</p>
+                    <div class="service-reveal">
+                        <ul>
+                            <li>ETL via Power Query</li>
+                            <li>Duplicate removal</li>
+                            <li>Data type normalization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3 class="service-title mono-text">Inventory Trackers</h3>
+                    <p class="service-desc">WIP tracking, stock management, freight operations.</p>
+                    <p class="service-ideal">Ideal for: Logistics, Import/Export, Manufacturing, Textiles</p>
+                    <div class="service-reveal">
+                        <ul>
+                            <li>Auto-aging logic</li>
+                            <li>Status flags</li>
+                            <li>Summary dashboards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3 class="service-title mono-text">HR & Payroll Systems</h3>
+                    <p class="service-desc">Employee registers, payroll summaries, attendance sheets.</p>
+                    <p class="service-ideal">Ideal for: HR Departments, SMEs</p>
+                    <div class="service-reveal">
+                        <ul>
+                            <li>Auto ID generation</li>
+                            <li>Leave tracking</li>
+                            <li>Salary slips</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title mono-text">Excel VBA Automation</h3>
+                    <p class="service-desc">Repetitive task automation, one-click report generation.</p>
+                    <p class="service-ideal">Ideal for: Any business with repetitive Excel work</p>
+                    <div class="service-reveal">
+                        <ul>
+                            <li>Button-triggered macros</li>
+                            <li>Auto-email drafts</li>
+                            <li>Batch processing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === HOW IT WORKS SECTION === -->
+    <section id="process" class="section-padding fade-in-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple Process. Powerful Results.</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Discovery Call</h3>
+                    <p class="step-desc">We discuss your business needs and data challenges (Free).</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Solution Design</h3>
+                    <p class="step-desc">I map out the Excel system architecture and share a plan.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Build & Deliver</h3>
+                    <p class="step-desc">I build your custom Excel file with full documentation.</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Handover & Training</h3>
+                    <p class="step-desc">You receive the file + a walkthrough session to master it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === WHY CHOOSE ME SECTION === -->
+    <section id="why-me" class="section-padding fade-in-section">
+        <div class="container">
+            <div class="why-container">
+                <div class="why-content">
+                    <h2>I Build Excel Systems That Run Your Business — Not Just Track It.</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">Fixing Broken Spreadsheets and Building Smart Financial Systems.</p>
+                    
+                    <ul class="why-list">
+                        <li><span class="check">✓</span> Real finance & operations background (not just Excel theory)</li>
+                        <li><span class="check">✓</span> ICMA Background — I understand RPA, Accounting, and Administration</li>
+                        <li><span class="check">✓</span> 7+ years working with Textile finance businesses & Corporate Offices</li>
+                        <li><span class="check">✓</span> I build what your team can actually maintain and use</li>
+                        <li><span class="check">✓</span> Fast turnaround — most projects delivered in 3–7 business days</li>
+                        <li><span class="check">✓</span> Affordable PKR pricing for local businesses, USD for international clients</li>
+                    </ul>
+                </div>
+                
+                <div class="why-testimonial">
+                    <div class="testimonial-card">
+                        <p class="quote-text">"Humayun R. built us a complete billing and WIP tracking system in Excel. What used to take our team 3 hours now takes 15 minutes. Exceptional work."</p>
+                        <p class="quote-author">— Operations Manager, Karachi Freight Company</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === PORTFOLIO SECTION === -->
+    <section id="portfolio" class="section-padding fade-in-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recent Excel Systems Built</h2>
+                <p>A look at some of the custom solutions delivered to clients.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-header">
+                        <div class="portfolio-header-icon">🚢</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title mono-text">Clearing & Forwarding WIP Tracker</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag">Power Query</span>
+                            <span class="tag">Pivot Tables</span>
+                            <span class="tag">Dashboard</span>
+                        </div>
+                        <p class="portfolio-desc">Multi-sheet workbook with job tracking, billing, aging reports, and executive dashboard for a Karachi-based freight company.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-header">
+                        <div class="portfolio-header-icon">📈</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title mono-text">Finance Executive Dashboard</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag">Dynamic Charts</span>
+                            <span class="tag">KPIs</span>
+                            <span class="tag">Conditional Formatting</span>
+                        </div>
+                        <p class="portfolio-desc">One-page visual dashboard pulling from multiple data sheets with real-time KPI cards and variance indicators.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-header">
+                        <div class="portfolio-header-icon">👔</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title mono-text">HR & Payroll Management System</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag">VBA Macros</span>
+                            <span class="tag">Employee Register</span>
+                            <span class="tag">Payroll</span>
+                        </div>
+                        <p class="portfolio-desc">Full HR workbook with auto-ID generation, attendance tracking, payroll calculations, and department summaries.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-header">
+                        <div class="portfolio-header-icon">💵</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title mono-text">Client Revenue Analysis Tool</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag">XLOOKUP</span>
+                            <span class="tag">Pivot Analysis</span>
+                            <span class="tag">Power Query</span>
+                        </div>
+                        <p class="portfolio-desc">Client-level revenue breakdown with trend charts, profitability flags, and monthly comparison reports.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === PRICING SECTION === -->
+    <section id="pricing" class="section-padding fade-in-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Transparent Pricing. No Surprises.</h2>
+                <p>All packages include documentation and one revision round.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Starter -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">Starter</h3>
+                    <div class="plan-price-pkr">PKR 10,000</div>
+                    <div class="plan-price-usd">/ USD $25</div>
+                    <ul class="plan-features">
+                        <li>Single-sheet tracker or report</li>
+                        <li>Up to 3 formulas/automations</li>
+                        <li>1 revision</li>
+                        <li>Delivery: 2–3 days</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width:100%">Get Started</a>
+                </div>
+
+                <!-- Professional -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">⭐ Most Popular</div>
+                    <h3 class="plan-name">Professional</h3>
+                    <div class="plan-price-pkr">PKR 30,000</div>
+                    <div class="plan-price-usd">/ USD $99</div>
+                    <ul class="plan-features">
+                        <li>Multi-sheet workbook system</li>
+                        <li>Dashboard + automation included</li>
+                        <li>Power Query setup</li>
+                        <li>2 revisions</li>
+                        <li>Delivery: 5–7 days</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width:100%">Get Started</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <div class="plan-price-pkr">PKR 55,000</div>
+                    <div class="plan-price-usd">/ USD $199</div>
+                    <ul class="plan-features">
+                        <li>Full business Excel system</li>
+                        <li>VBA macros + advanced automation</li>
+                        <li>Training session included</li>
+                        <li>Unlimited revisions (30 days)</li>
+                        <li>Delivery: 7–14 days</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary" style="width:100%">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === CONTACT SECTION === -->
+    <section id="contact" class="section-padding fade-in-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Transform Your Workflows?</h2>
+                <p>Let's talk about your data challenges. First consultation is completely free.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4 class="mono-text">Email</h4>
+                            <p>Humayunrazi1@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4 class="mono-text">WhatsApp</h4>
+                            <p>+92-319-1285320</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">🔗</div>
+                        <div class="contact-details">
+                            <h4 class="mono-text">LinkedIn</h4>
+                            <p>linkedin.com/in/humayunrazi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4 class="mono-text">Location</h4>
+                            <p>Karachi, Pakistan | Available Worldwide</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required placeholder="john@company.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" class="form-control">
+                                <option value="dashboard">Executive Dashboard</option>
+                                <option value="financial">Financial Model / Report</option>
+                                <option value="data">Data Cleaning / ETL</option>
+                                <option value="inventory">Inventory / Operations Tracker</option>
+                                <option value="hr">HR & Payroll System</option>
+                                <option value="vba">VBA Automation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" class="form-control" required placeholder="Tell me about your current Excel challenges..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+                        
+                        <div id="formSuccess" class="form-success">
+                            Thank you! I'll be in touch within 24 hours.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">
+                        Excel Specialist <span>|</span> Humayun Razi
+                    </a>
+                    <p class="footer-tagline">Turning Raw Data Into Business Decisions — With Excel.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-icon" aria-label="WhatsApp">W</a>
+                        <a href="#" class="social-icon" aria-label="Email">@</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#why-me">Why Choose Me</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Dashboards</a></li>
+                        <li><a href="#services">Financial Models</a></li>
+                        <li><a href="#services">Data Cleaning</a></li>
+                        <li><a href="#services">Operations Trackers</a></li>
+                        <li><a href="#services">VBA Automation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li>Humayunrazi1@gmail.com</li>
+                        <li>+92-319-1285320</li>
+                        <li>Karachi, Pakistan</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Humayun Razi | Excel & Cost Finance & Administration Automation Expert | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- === JAVASCRIPT === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Mobile Menu Toggle
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-link, .btn-pill');
+
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileToggle.textContent = '☰';
+                });
+            });
+
+            // 2. Sticky Navbar & Active Link Highlighting
+            const navbar = document.getElementById('navbar');
+            const sections = document.querySelectorAll('section');
+            const navLinksArr = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                // Sticky Header
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                // Active Link
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinksArr.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // 3. Typing Animation
+            const typedTextSpan = document.querySelector(".typed-text");
+            const textArray = ["Data Analysts", "Administration", "Accountants", "Finance Teams", "SMEs", "Reporting"];
+            const typingDelay = 100;
+            const erasingDelay = 50;
+            const newTextDelay = 2000; // Delay between current and next text
+            let textArrayIndex = 0;
+            let charIndex = 0;
+
+            function type() {
+                if (charIndex < textArray[textArrayIndex].length) {
+                    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(type, typingDelay);
+                } 
+                else {
+                    setTimeout(erase, newTextDelay);
+                }
+            }
+
+            function erase() {
+                if (charIndex > 0) {
+                    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+                    charIndex--;
+                    setTimeout(erase, erasingDelay);
+                } 
+                else {
+                    textArrayIndex++;
+                    if(textArrayIndex >= textArray.length) textArrayIndex = 0;
+                    setTimeout(type, typingDelay + 500);
+                }
+            }
+
+            if(textArray.length) setTimeout(type, newTextDelay + 250);
+
+            // 4. Scroll Reveal (Intersection Observer)
+            const revealElements = document.querySelectorAll('.fade-in-section');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-visible');
+                    // Optional: stop observing once revealed
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+
+            // 5. Stats Counter Animation
+            const counters = document.querySelectorAll('.counter');
+            let hasCounted = false;
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasCounted) {
+                        hasCounted = true;
+                        
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000; // ms
+                            const increment = target / (duration / 16); // 60fps
+                            let current = 0;
+
+                            const updateCounter = () => {
+                                current += increment;
+                                if (current < target) {
+                                    counter.innerText = Math.ceil(current);
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target;
+                                }
+                            };
+                            updateCounter();
+                        });
+                        
+                        // Also trigger the hero chart bar animation
+                        setTimeout(() => {
+                            const bar1 = document.getElementById('anim-bar-1');
+                            const bar2 = document.getElementById('anim-bar-2');
+                            if(bar1) bar1.style.width = '80%';
+                            if(bar2) bar2.style.width = '60%';
+                        }, 500);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.getElementById('stats');
+            if (statsSection) {
+                counterObserver.observe(statsSection);
+            }
+
+            // 6. Form Submission Simulation
+            const form = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            const submitBtn = form.querySelector('.btn-submit');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Show loading state
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate network request
+                setTimeout(() => {
+                    formSuccess.style.display = 'block';
+                    form.reset();
+                    
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formSuccess.style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
